@@ -8,3 +8,4 @@ This is a minimal Node.js + Docker project to practice AWS CodePipeline.
 - **taskdef.json** (not included here) would define ECS task for CodeDeploy.
 
 Use this repo as your source stage in CodePipeline, connect it to CodeBuild, and deploy via ECS/CodeDeploy.
+--by mistake didnt saved the pipeline defintion so this is just to start it-- 
