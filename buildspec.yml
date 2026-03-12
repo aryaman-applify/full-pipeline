@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   variables:
-    REPOSITORY_URI: <account-id>.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/sample-codepipeline-app
+    REPOSITORY_URI: 515800584100.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/simple-docker-service-12928efd52ff
 
 phases:
   pre_build:
@@ -13,15 +13,15 @@ phases:
   build:
     commands:
       - echo Building the Docker image...
-      - docker build -t sample-codepipeline-app .
-      - docker tag sample-codepipeline-app:latest $REPOSITORY_URI:$CODEBUILD_RESOLVED_SOURCE_VERSION
+      - docker build -t simple-docker-service-12928efd52ff -f Dockerfile .
+      - docker tag simple-docker-service-12928efd52ff:latest $REPOSITORY_URI:latest
   post_build:
     commands:
       - echo Pushing the Docker image...
-      - docker push $REPOSITORY_URI:$CODEBUILD_RESOLVED_SOURCE_VERSION
+      - docker push $REPOSITORY_URI:latest
       - echo Writing imagedefinitions.json file...
       - printf '[{"name":"simple-container","imageUri":"%s"}]' \
-        "$REPOSITORY_URI:$CODEBUILD_RESOLVED_SOURCE_VERSION" > imagedefinitions.json
+        "$REPOSITORY_URI:latest" > imagedefinitions.json
 
 artifacts:
   files:
