@@ -6,11 +6,6 @@ env:
     REPOSITORY_URI: 515800584100.dkr.ecr.us-east-1.amazonaws.com/simple-docker-service
 
 phases:
-  install:
-    commands:
-      - yum update -y
-      - yum install -y docker
-      - service docker start
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
