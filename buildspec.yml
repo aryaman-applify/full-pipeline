@@ -2,6 +2,7 @@ version: 0.2
 
 env:
   variables:
+    AWS_DEFAULT_REGION: us-east-1
     REPOSITORY_URI: 515800584100.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/simple-docker-service-12928efd52ff
 
 phases:
